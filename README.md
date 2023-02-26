@@ -30,5 +30,8 @@ This is my professional portfolio website showcasing my skills, projects, and wo
 
 ## Updates
 
-- Item 1: Created the website for testing and built the initial structure in index.html as well as setting up the git repo (Feb 25/23)
+- Commit 1 (Feb 25/23)
+	 * Built the initial structure in index.html (tested)
+	 * Set up the git and development enviroment for efficiency (tested)
+	 * Created the blog post and contact info with basic security (need to test encryption)
 

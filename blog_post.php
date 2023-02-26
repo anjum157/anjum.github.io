@@ -9,12 +9,29 @@
   
   <main>
     <section>
-      <h2>Welcome to my portfolio</h2>
-      <p>This is where I showcase my projects and skills.</p>
+      <?php
+      // Get the post title from the URL parameter
+      $post_title = $_GET['post'];
+
+      // Find the post in the CSV file
+      $csv = array_map('str_getcsv', file('blog_posts.csv'));
+      $headers = array_shift($csv); // Remove headers from array
+      foreach ($csv as $row) {
+        if (strtolower(preg_replace('/[^a-zA-Z0-9\-]/', '', $row[0])) === $post_title) {
+          $post_title = $row[0];
+          $author_name = $row[1];
+          $post_date = $row[2];
+          $post_content = $row[3];
+          break;
+        }
+      }
+      ?>
+      <h2><?php echo $post_title; ?></h2>
+      <p><?php echo $author_name; ?> | <?php echo $post_date; ?></p>
+      <p><?php echo $post_content; ?></p>
     </section>
   </main>
 
-  
   <div id="footer"></div>
 
   <div id="contactModal" style="display: none;">
